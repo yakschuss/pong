@@ -1,23 +1,21 @@
 var CanvasConfig = (function () {
-  var Constructor = {};
 
   var canvas = document.getElementById('pong-board');
   var context = canvas.getContext('2d');
 
-  var drawPingPongLine = function () {
+   drawPingPongLine = function () {
     context.beginPath();
 
     context.moveTo(canvas.width/2, 0);
     context.lineTo(canvas.width/2, canvas.height);
-    context.lineWidth = 5;
+    context.lineWidth = 15;
 
     context.strokeStyle = '#fff';
 
     context.stroke();
-  
   };
 
-  Constructor.Paddle = function (x, y){
+  var Paddle = function (x, y){
     this.x = x;
     this.y = y;
 
@@ -26,20 +24,40 @@ var CanvasConfig = (function () {
     context.moveTo(x, y);
     context.lineTo(x, y + 200);
 
-    context.lineWidth = 20;
+    context.lineWidth = 40;
     context.strokeStyle = '#fff';
     context.lineCap = 'round';
 
     context.stroke();
-
   }
 
-  var rightPaddle = new Constructor.Paddle(30, 90);
-  var leftPaddle = new Constructor.Paddle(710, 240);
+  var Ball = function () {
+    var centerX = canvas.width / 2;
+    var centerY = canvas.height / 2;
+
+    var radius = 30;
+  
+    context.beginPath();
+    context.arc(centerX - 100, centerY, radius, 0, 2 * Math.PI, false);
+
+    context.fillStyle = '#fff';
+    context.fill();
+
+    context.lineWidth = 2;
+
+    context.strokeStyle = '#000';
+    context.stroke();
+  
+  }
+
+  var Computer = function (){new Paddle(40, 90)}
+  var Player = function (){new Paddle(2850, 240)}
+
   drawPingPongLine();
-
-
-  return Constructor;
+  computerPaddle = new Computer();
+  playerPaddle = new Player();
+  ball = new Ball();
+  
 })();
 
 
