@@ -1,4 +1,5 @@
 html {
+
   height: 100%;
   width: 100%;
   margin: 0;
@@ -7,6 +8,13 @@ html {
 body {
   height: 100%;
   width: 100%;
+}
+.canvas-container {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+
 }
 
 .pong-board-style {
