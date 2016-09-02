@@ -1,29 +1,28 @@
 
 
-var Ball = function () {
+var Ball = function (x, y) {
+  this.canvas = document.getElementById('pong-board');
+  this.context = this.canvas.getContext('2d')
 
-  var canvas = document.getElementById('pong-board');
-  var context = canvas.getContext('2d');
+  this.x = x;
+  this.y = y;
+}
 
-
-  var centerX = canvas.width / 2;
-  var centerY = canvas.height / 2;
+Ball.prototype.render = function () {
 
   var radius = 30;
 
-  context.beginPath();
-  context.arc(centerX - 100, centerY, radius, 0, 2 * Math.PI, false);
+  this.context.beginPath();
+  this.context.arc(this.x , this.y, radius, 0, 2 * Math.PI, false);
 
-  context.fillStyle = '#fff';
-  context.fill();
+  this.context.fillStyle = '#fff';
+  this.context.fill();
 
-  context.lineWidth = 2;
+  this.context.lineWidth = 2;
+  this.context.strokeStyle = '#000';
 
-  context.strokeStyle = '#000';
-  context.stroke();
-
+  this.context.stroke();
 }
-
 
 
 module.exports = Ball;

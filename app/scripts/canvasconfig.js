@@ -18,9 +18,6 @@ var Canvas = (function () {
   };
 
 
-
-  CanvasConfig.drawPingPongLine();
-
   return CanvasConfig;
   
 })();

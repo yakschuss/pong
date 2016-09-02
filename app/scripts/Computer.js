@@ -1,11 +1,14 @@
 var Paddle = require('./Paddle');
 
 var Computer = function (){
-  
-  new Paddle(40, 90)
 
+  return Object.assign(Object.create(Paddle), {
+    x: 40,
+    y: 90
+  }
+ );
 }
 
 
-module.exports = Computer;
+  module.exports = Computer;
 
